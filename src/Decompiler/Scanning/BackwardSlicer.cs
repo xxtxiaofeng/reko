@@ -1,4 +1,4 @@
-﻿#region License
+#region License
 /* 
  * Copyright (C) 1999-2017 John Källén.
  *
@@ -55,13 +55,13 @@ namespace Reko.Scanning
         internal static TraceSwitch trace = new TraceSwitch("BackwardSlicer", "Traces the backward slicer") { Level = TraceLevel.Verbose };
 
         internal IBackWalkHost<RtlBlock, RtlInstruction> host;
-        private RtlBlock rtlBlock;
-        private ProcessorState processorState;
+        private readonly RtlBlock rtlBlock;
+        private readonly ProcessorState processorState;
+        private readonly WorkList<SliceState> worklist;
+        private readonly HashSet<RtlBlock> visited;
+        private readonly ExpressionValueComparer cmp;
+        private readonly ExpressionSimplifier simp;
         private SliceState state;
-        private WorkList<SliceState> worklist;
-        private HashSet<RtlBlock> visited;
-        private ExpressionValueComparer cmp;
-        private ExpressionSimplifier simp;
 
         public BackwardSlicer(IBackWalkHost<RtlBlock, RtlInstruction> host, RtlBlock rtlBlock, ProcessorState state)
         {
@@ -466,10 +466,10 @@ namespace Reko.Scanning
         RtlInstructionVisitor<SlicerResult>,
         ExpressionVisitor<SlicerResult, BackwardSlicerContext>
     {
-        private BackwardSlicer slicer;
-        public RtlBlock block;
+        private readonly BackwardSlicer slicer;
+        public readonly RtlBlock block;
         public int iInstr;              // The current instruction
-        public RtlInstruction[] instrs; // The instructions of this block
+        public readonly RtlInstruction[] instrs; // The instructions of this block
         public Address addrSucc;        // the block from which we traced.
         public ConditionCode ccNext;    // The condition code that is used in a branch.
         public Expression assignLhs;    // current LHS
@@ -571,7 +571,12 @@ namespace Reko.Scanning
         {
             if (e is Identifier id)
             {
-                return id.Storage.Domain;
+                if (id.Storage is RegisterStorage)
+                    return StorageDomain.Register;
+                else if (id.Storage is TemporaryStorage)
+                    return StorageDomain.Temporary;
+                else if (id.Storage is FlagGroupStorage)
+                    return StorageDomain.Temporary;
             }
             return StorageDomain.Memory;
         }
@@ -597,8 +602,8 @@ namespace Reko.Scanning
             case ConditionCode.LT: return StridedInterval.Create(1, 0, right.ToInt64() - 1);
             case ConditionCode.ULE: return StridedInterval.Create(1, 0, (long) right.ToUInt64());
             case ConditionCode.ULT: return StridedInterval.Create(1, 0, (long) right.ToUInt64() - 1);
-            case ConditionCode.UGE: return StridedInterval.Create(1, (long)right.ToUInt64(), long.MaxValue);
-            case ConditionCode.UGT: return StridedInterval.Create(1, (long)right.ToUInt64() + 1, long.MaxValue);
+            case ConditionCode.UGE: return StridedInterval.Create(1, (long) right.ToUInt64(), long.MaxValue);
+            case ConditionCode.UGT: return StridedInterval.Create(1, (long) right.ToUInt64() + 1, long.MaxValue);
             case ConditionCode.EQ:
             case ConditionCode.NE:
             case ConditionCode.None:
@@ -653,18 +658,18 @@ namespace Reko.Scanning
                 return null;
             }
             this.assignLhs = ass.Dst;
-            var deadRegs = Live.Where(de => de.Key is Identifier i && i.Storage.Domain == id.Storage.Domain).ToList();
-            if (deadRegs.Count == 0)
+            var killedRegs = Live.Where(de => de.Key is Identifier i && i.Storage.Domain == id.Storage.Domain).ToList();
+            if (killedRegs.Count == 0)
             {
                 // This assignment doesn't affect the end result.
                 return null;
             }
-            foreach (var killedReg in deadRegs)
+            foreach (var killedReg in killedRegs)
             {
                 Live.Remove(killedReg.Key);
             }
-            this.assignLhs = deadRegs[0].Key;
-            var se = ass.Src.Accept(this, deadRegs[0].Value);
+            this.assignLhs = killedRegs[0].Key;
+            var se = ass.Src.Accept(this, killedRegs[0].Value);
             if (se == null)
                 return se;
             var newJt = ExpressionReplacer.Replace(assignLhs, se.SrcExpr, JumpTableFormat);
@@ -716,15 +721,14 @@ namespace Reko.Scanning
                 return null;
             if (binExp.Operator == Operator.ISub && Live != null && (ctx.Type & ContextType.Condition) != 0)
             {
-                var domLeft = DomainOf(seLeft.SrcExpr);
-                var seFound = TryFoundAllConditions(binExp, domLeft, this.assignLhs, ctx);
+                var seFound = TryFoundAllConditions(binExp, this.assignLhs, ctx);
                 if (seFound != null)
                     return seFound;
                 foreach (var live in Live)
                 {
                     if (live.Value.Type != ContextType.Jumptable)
                         continue;
-                    seFound = TryFoundAllConditions(binExp, domLeft, live.Key, live.Value);
+                    seFound = TryFoundAllConditions(binExp, live.Key, live.Value);
                     if (seFound != null)
                         return seFound;
                 }
@@ -740,7 +744,7 @@ namespace Reko.Scanning
                     Stop = true,
                 };
             }
-            IEnumerable<KeyValuePair<Expression,BackwardSlicerContext>> liveExpr = seLeft.LiveExprs;
+            IEnumerable<KeyValuePair<Expression, BackwardSlicerContext>> liveExpr = seLeft.LiveExprs;
             if (seRight != null)
                 liveExpr = liveExpr.Concat(seRight.LiveExprs);
             var se = new SlicerResult
@@ -758,27 +762,38 @@ namespace Reko.Scanning
         /// set the jump table bounds and proceed.
         /// </summary>
         private SlicerResult TryFoundAllConditions(
-            BinaryExpression subtraction, 
-            StorageDomain domLeft, 
-            Expression indexCandidate, 
+            BinaryExpression subtraction,
+            Expression indexCandidate,
             BackwardSlicerContext ctx)
         {
-            if ((domLeft != StorageDomain.Memory && DomainOf(indexCandidate) == domLeft)
-                ||
-                (this.slicer.AreEqual(indexCandidate, subtraction.Left)))
+            if (indexCandidate is MemoryAccess)
             {
-                //$TODO: if jmptableindex and jmptableindextouse not same, inject a statement.
-                this.JumpTableIndex = indexCandidate;
-                this.JumpTableIndexToUse = subtraction.Left;
-                this.JumpTableIndexInterval = MakeInterval_ISub(indexCandidate, subtraction.Right as Constant);
-                DebugEx.PrintIf(BackwardSlicer.trace.TraceVerbose, "  Found range of {0}:{1}: {2}", indexCandidate, ctx, JumpTableIndexInterval);
-                return new SlicerResult
-                {
-                    SrcExpr = subtraction,
-                    Stop = true
-                };
+                if (!this.slicer.AreEqual(indexCandidate, subtraction.Left))
+                    return null;
             }
-            return null;
+            else if (indexCandidate is Identifier id)
+            {
+                if (!(id.Storage is RegisterStorage) &&
+                    !(id.Storage is TemporaryStorage))
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+
+            //$TODO: if jmptableindex and jmptableindextouse not same, inject a statement.
+            this.JumpTableIndex = indexCandidate;
+            this.JumpTableIndexToUse = subtraction.Left;
+            this.JumpTableIndexInterval = MakeInterval_ISub(indexCandidate, subtraction.Right as Constant);
+            DebugEx.PrintIf(BackwardSlicer.trace.TraceVerbose, "  Found range of {0}:{1}: {2}", indexCandidate, ctx, JumpTableIndexInterval);
+            return new SlicerResult
+            {
+                SrcExpr = subtraction,
+                Stop = true
+            };
         }
 
         public SlicerResult VisitBranch(RtlBranch branch)
@@ -873,7 +888,7 @@ namespace Reko.Scanning
 
         public SlicerResult VisitGoto(RtlGoto go)
         {
-            var sr = go.Target.Accept(this, BackwardSlicerContext.Cond(RangeOf(go.Target)));
+            var sr = go.Target.Accept(this, BackwardSlicerContext.Jump(RangeOf(go.Target)));
             if (JumpTableFormat == null)
             {
                 JumpTableFormat = go.Target;
