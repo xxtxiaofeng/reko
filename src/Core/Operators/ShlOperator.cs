@@ -30,9 +30,8 @@ namespace Reko.Core.Operators
 		{
             if (!ValidArgs(c1, c2))
                 return Constant.Invalid;
-            var pt = c1.DataType as PrimitiveType;
             var dom = Domain.Integer;
-            if (pt != null)
+            if (c1.DataType is PrimitiveType pt)
                 dom = pt.Domain & Domain.Integer;
             if (dom == 0)
                 dom = Domain.Integer;

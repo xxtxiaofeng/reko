@@ -66,11 +66,11 @@ namespace Reko.Core.Output
 		{
             this.InnerFormatter = writer;
             this.typeWriter = new TypeGraphWriter(writer);
-        }
+		}
 
         public Formatter InnerFormatter { get; }
 
-        static CodeFormatter()
+		static CodeFormatter()
 		{
             precedences = new Dictionary<Operator, int>
             {

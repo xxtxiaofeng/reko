@@ -157,6 +157,7 @@
     <Compile Include="Analysis\FpuStackReturnGuesserTests.cs" />
     <Compile Include="Analysis\ProjectionPropagatorTests.cs" />
     <Compile Include="Analysis\ProcedureFlowTests.cs" />
+    <Compile Include="Analysis\SlicePropagatorTests.cs" />
     <Compile Include="Analysis\SparseValuePropagationTests.cs" />
     <Compile Include="Analysis\SsaMutatorTests.cs" />
     <Compile Include="Analysis\StackPointerBackpropagatorTests.cs" />
