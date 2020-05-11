@@ -265,6 +265,7 @@
     <Compile Include="Arch\Microchip\PIC18\PIC18EggExtd_RewriterTests.cs" />
     <Compile Include="Arch\Microchip\PIC18\PIC18EggTrad_RewriterTests.cs" />
     <Compile Include="Arch\Microchip\PIC18\PIC18LgcyTrad_RewriterTests.cs" />
+    <Compile Include="Core\EndianServicesTests.cs" />
     <Compile Include="Core\ImportReferenceTests.cs" />
     <Compile Include="Core\Lib\BitfieldTests.cs" />
     <Compile Include="Core\Lib\ConcurrentBTreeDictionaryTests.cs" />
