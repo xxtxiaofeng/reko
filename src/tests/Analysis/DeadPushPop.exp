@@ -104,8 +104,8 @@ Z_17: orig: Z
 O_18: orig: O
 ds_si:Sequence ds:si
     def:  def ds_si
-    uses: Mem13[ds_si:word16] = ax_7
-          ds = SLICE(ds_si, selector, 16)
+    uses: ds = SLICE(ds_si, selector, 16)
+          Mem13[ds_si:word16] = ax_7
 // fn0C00_0000
 // Return size: 0
 void fn0C00_0000(word32 ds_si, word16 di)

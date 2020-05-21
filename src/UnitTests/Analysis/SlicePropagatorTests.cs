@@ -25,6 +25,7 @@ using Reko.Core;
 using Reko.Core.Types;
 using Reko.UnitTests.Mocks;
 using System;
+using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -39,7 +40,7 @@ namespace Reko.UnitTests.Analysis
         [SetUp]
         public void Setup()
         {
-            this.arch = new FakeArchitecture();
+            this.arch = new FakeArchitecture(new ServiceContainer());
         }
 
         private void RunTest(string sExpected, Action<SsaProcedureBuilder> builder)
@@ -49,7 +50,7 @@ namespace Reko.UnitTests.Analysis
             var slp = new SlicePropagator(m.Ssa, new FakeDecompilerEventListener());
             slp.Transform();
             var sw = new StringWriter();
-            m.Ssa.Procedure.Write(false, sw);
+            m.Ssa.Procedure.WriteBody(true, sw);
             var sActual = sw.ToString();
             if (sActual != sExpected)
             {
@@ -68,10 +69,7 @@ namespace Reko.UnitTests.Analysis
         {
             var sExp =
             #region Expected 
-@"// SsaProcedureBuilder
-// Return size: 0
-define SsaProcedureBuilder
-SsaProcedureBuilder_entry:
+@"SsaProcedureBuilder_entry:
 	// succ:  l1
 l1:
 	r1_4 = Mem1[0x123400<32>:byte]
@@ -92,10 +90,7 @@ SsaProcedureBuilder_exit:
         {
             var sExp =
             #region Expected
-@"// SsaProcedureBuilder
-// Return size: 0
-define SsaProcedureBuilder
-SsaProcedureBuilder_entry:
+@"SsaProcedureBuilder_entry:
 	def r1_3
 	// succ:  l1
 l1:
@@ -116,10 +111,7 @@ SsaProcedureBuilder_exit:
         {
             var sExp =
             #region Expected
-@"// SsaProcedureBuilder
-// Return size: 0
-define SsaProcedureBuilder
-SsaProcedureBuilder_entry:
+@"SsaProcedureBuilder_entry:
 	// succ:  l1
 l1:
 	r1_4 = Mem1[0x123400<32>:word16]
@@ -140,10 +132,7 @@ SsaProcedureBuilder_exit:
         {
             var sExp =
             #region Expected
-@"// SsaProcedureBuilder
-// Return size: 0
-define SsaProcedureBuilder
-SsaProcedureBuilder_entry:
+@"SsaProcedureBuilder_entry:
 	// succ:  m1
 m1:
 	branch Mem4[0x123400<32>:word32] >= 0<32> m3
@@ -196,10 +185,7 @@ SsaProcedureBuilder_exit:
         {
             var sExp =
             #region Expected
-@"// SsaProcedureBuilder
-// Return size: 0
-define SsaProcedureBuilder
-SsaProcedureBuilder_entry:
+@"SsaProcedureBuilder_entry:
 	// succ:  l1
 l1:
 	r3_5 = Mem2[0x123400<32>:byte]
@@ -215,19 +201,14 @@ SsaProcedureBuilder_exit:
                 m.Assign(r3, m.Seq(tmpHi, m.Mem8(m.Word32(0x00123400))));
                 m.MStore(m.Word32(0x00123404), m.Slice(PrimitiveType.Byte, r3, 0));
             });
-
         }
-
 
         [Test]
         public void Slp_NecessarySlice()
         {
             var sExp =
             #region Expected
-                @"// SsaProcedureBuilder
-// Return size: 0
-define SsaProcedureBuilder
-SsaProcedureBuilder_entry:
+@"SsaProcedureBuilder_entry:
 	// succ:  l1
 l1:
 	id_1 = (word32) Mem1[0x123400<32>:byte]
