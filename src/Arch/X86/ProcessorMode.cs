@@ -351,7 +351,7 @@ namespace Reko.Arch.X86
 
         public override Address CreateSegmentedAddress(ushort seg, uint offset)
         {
-            return null;
+            return Address.ProtectedSegPtr(seg, offset);
         }
 
         public override Expression CreateStackAccess(IStorageBinder binder, int offset, DataType dataType)
