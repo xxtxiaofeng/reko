@@ -138,7 +138,7 @@ namespace Reko.Arch.Xtensa
             };
         }
 
-        public override XtensaInstruction NotYetImplemented(uint wInstr, string message)
+        public override XtensaInstruction NotYetImplemented(string message)
         {
             var testGenSvc = arch.Services.GetService<ITestGenerationService>();
             testGenSvc?.ReportMissingDecoder("Xtdasm", this.state.addr, this.rdr, message);

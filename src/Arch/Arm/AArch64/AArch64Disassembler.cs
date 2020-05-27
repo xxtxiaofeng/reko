@@ -1273,7 +1273,7 @@ namespace Reko.Arch.Arm.AArch64
                     m = op;
                 else
                     m = $"{op} - {message}";
-                d.NotYetImplemented(u, m);
+                d.NotYetImplemented(m);
                 d.CreateInvalidInstruction();
                 return false;
             };
@@ -1529,7 +1529,7 @@ namespace Reko.Arch.Arm.AArch64
             return new NyiDecoder<AArch64Disassembler, Mnemonic, AArch64Instruction>(str);
         }
 
-        public override AArch64Instruction NotYetImplemented(uint wInstr, string message)
+        public override AArch64Instruction NotYetImplemented(string message)
         {
             var testGenSvc = arch.Services.GetService<ITestGenerationService>();
             testGenSvc?.ReportMissingDecoder("AArch64Dis", this.addr, this.rdr, message);
