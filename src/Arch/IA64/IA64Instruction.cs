@@ -20,6 +20,7 @@
 
 using Reko.Core;
 using Reko.Core.Machine;
+using Reko.Core.Types;
 using System.Text;
 
 namespace Reko.Arch.IA64
@@ -52,6 +53,8 @@ namespace Reko.Arch.IA64
         {
             if (QualifyingPredicate == Registers.PredicateRegisters[0])
                 return;
+            if (QualifyingPredicate == null)
+                return;
             writer.WriteFormat("({0}) ", QualifyingPredicate.Name);
         }
 
@@ -67,7 +70,14 @@ namespace Reko.Arch.IA64
             switch (operand)
             {
             case ImmediateOperand imm:
-                writer.WriteFormat("0x{0:X}", imm.Value.ToUInt64());
+                if (imm.Width.Domain == Domain.SignedInt)
+                {
+                    writer.WriteFormat("{0}", imm.Value.ToInt64());
+                }
+                else
+                {
+                    writer.WriteFormat("0x{0:X}", imm.Value.ToUInt64());
+                }
                 return;
             }
             base.RenderOperand(operand, writer, options);
