@@ -35,6 +35,7 @@ namespace Reko.Core.Machine
     /// <typeparam name="TInstr">Instruction type</typeparam>
     public abstract class Decoder<TDasm, TMnemonic, TInstr> 
         where TInstr : MachineInstruction
+        where TMnemonic : struct
     {
         private static readonly TraceSwitch trace = new TraceSwitch(nameof(Decoder), "Trace the progress of machine code decoders") { Level = TraceLevel.Verbose };
 
@@ -90,6 +91,7 @@ namespace Reko.Core.Machine
 
     public abstract class WideDecoder<TDasm, TMnemonic, TInstr> : Decoder<TDasm, TMnemonic, TInstr>
         where TInstr : MachineInstruction
+        where TMnemonic : struct
     {
         public sealed override TInstr Decode(uint wInstr, TDasm dasm)
         {
