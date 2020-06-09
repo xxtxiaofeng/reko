@@ -63,12 +63,13 @@ namespace Reko.Arch.Mos6502
             return instr;
         }
 
-        public override Instruction NotYetImplemented(uint wInstr, string message)
+        public override Instruction NotYetImplemented(string message)
         {
             var testGenSvc = arch.Services.GetService<ITestGenerationService>();
             testGenSvc?.ReportMissingDecoder("Dis65816", this.addr, this.rdr, message);
             return CreateInvalidInstruction();
         }
+
         public override Instruction CreateInvalidInstruction()
         {
             return new Instruction
