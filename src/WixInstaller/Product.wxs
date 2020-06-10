@@ -172,6 +172,7 @@
         <File Source="$(var.Arm.TargetPath)" />
         <File Source="$(var.Avr.TargetPath)" />
         <File Source="$(var.Blackfin.TargetPath)" />
+        <File Source="$(var.CompactRisc.TargetPath)" />
         <File Source="$(var.Cray.TargetPath)" />
         <File Source="$(var.H8.TargetPath)" />
         <File Source="$(var.i8051.TargetPath)" />
