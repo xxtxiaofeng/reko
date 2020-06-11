@@ -82,7 +82,7 @@ namespace Reko.Core.Types
 
 	public class StructureFieldCollection : ICollection<StructureField>
 	{
-        private List<StructureField> innerList = new List<StructureField>();
+        private readonly List<StructureField> innerList = new List<StructureField>();
 
         public StructureField this[int i]
         {
