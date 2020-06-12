@@ -117,7 +117,7 @@ namespace Reko.Typing
         /// <summary>
         /// $DEBUG: for debugging only, only performs type analysis on the 
         /// <param name="count"/> procedures starting at
-        /// procedure start.
+        /// procedure <param name="start"/>.
         /// </summary>
         [Conditional("DEBUG")]
         private void RestrictProcedures(Program program, int start, int count, bool dumpProcedures)

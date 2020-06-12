@@ -7,6 +7,6 @@
 Eq_n g_tFFFF83BA;
 Eq_n g_a0000[];
 Eq_n g_a0001[];
-struct Eq_n * g_ptr8000 = &g_tFFFF83BA;
-struct Eq_n * g_ptr14830 = null;
+struct seg0800_t * g_ptr8000 = &g_tFFFF83BA;
+struct seg1483_t * g_ptr14830 = null;
 

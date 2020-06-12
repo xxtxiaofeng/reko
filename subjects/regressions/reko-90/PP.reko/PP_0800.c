@@ -7470,7 +7470,7 @@ Eq_n fn0800-4C55(Eq_n ax, Eq_n ds, union Eq_n & dxOut, union Eq_n & dsOut)
 			word16 dx_n;
 			fn0800-409C(ds_n, ss->*((word32) sp_n - 6), ss->*((word32) sp_n - 4), ss->*((word32) sp_n - 2), out dx_n, out ds_n);
 			word16 cx_n;
-			struct Eq_n Eq_n::* bx_n = Eq_n::a4F14;
+			struct Eq_n seg0800_t::* bx_n = seg0800_t::a4F14;
 			for (cx_n = 0x04; cx_n != 0x00; --cx_n)
 			{
 				if ((seg0800->*bx_n).w0000 == ax_n)
@@ -9840,7 +9840,7 @@ word16 fn0800-6AD4(Eq_n ds, union Eq_n & dxOut, union Eq_n & dsOut)
 				Eq_n ds_n;
 				Eq_n dx_n = fn0800-3E5D(ds_n, SEQ(*((word32) ds_n + 0x000029E5), *((word32) ds_n + 0x000029E3)), out ds_n);
 				word16 cx_n;
-				struct Eq_n Eq_n::* bx_n = Eq_n::a6EBC;
+				struct Eq_n seg0800_t::* bx_n = seg0800_t::a6EBC;
 				for (cx_n = 0x07; cx_n != 0x00; --cx_n)
 				{
 					if ((seg0800->*bx_n).w0000 == ax_n && bx_n[7] == (dx_n & 0x3FFF))
@@ -12756,7 +12756,7 @@ word16 fn0800-8F7F(byte al, Eq_n ds, Eq_n ptrArg02)
 // 0800:8F97: Register Eq_n fn0800-8F97(Register Eq_n di, Register Eq_n ds, Stack (memptr (ptr16 Eq_n) code) wArg02, Stack (memptr (ptr16 Eq_n) code) wArg04, Stack mp16 wArg06, Stack Eq_n wArg08, Stack (memptr Eq_n Eq_n) wArg0A, Stack Eq_n psegArg0C, Register out ptr16 diOut)
 // Called from:
 //      fn0800_BF18
-Eq_n fn0800-8F97(Eq_n di, Eq_n ds, <anonymous> Eq_n::* wArg02, <anonymous> Eq_n::* wArg04, mp16 wArg06, Eq_n wArg08, struct Eq_n Eq_n::* wArg0A, Eq_n psegArg0C, ptr16 & diOut)
+Eq_n fn0800-8F97(Eq_n di, Eq_n ds, <anonymous> seg0800_t::* wArg02, <anonymous> seg0800_t::* wArg04, mp16 wArg06, Eq_n wArg08, struct Eq_n Eq_n::* wArg0A, Eq_n psegArg0C, ptr16 & diOut)
 {
 	mp16 fp;
 	selector ss;
@@ -12767,8 +12767,8 @@ Eq_n fn0800-8F97(Eq_n di, Eq_n ds, <anonymous> Eq_n::* wArg02, <anonymous> Eq_n:
 	word16 wLoc0A;
 	Eq_n wArg08;
 	mp16 wArg06;
-	<anonymous> Eq_n::* wArg02;
-	<anonymous> Eq_n::* wArg04;
+	<anonymous> seg0800_t::* wArg02;
+	<anonymous> seg0800_t::* wArg04;
 	Eq_n dx;
 	wLoc08_n.u0 = 0x00;
 l0800_nFC8:
@@ -13446,7 +13446,7 @@ l0800_nAD:
 // 0800:94B0: Register Eq_n fn0800-94B0(Register Eq_n ds, Stack (memptr (ptr16 Eq_n) code) wArg02, Stack (memptr (ptr16 Eq_n) code) wArg04, Stack mp16 wArg06, Stack Eq_n wArg08, Stack uint16 wArg0A, Stack ci16 wArg0C, Stack (ptr32 word16) ptrArg0E, Stack (ptr32 word16) ptrArg12, Register out Eq_n dxOut, Register out Eq_n diOut)
 // Called from:
 //      fn0800-8F97
-Eq_n fn0800-94B0(Eq_n ds, <anonymous> Eq_n::* wArg02, <anonymous> Eq_n::* wArg04, mp16 wArg06, Eq_n wArg08, uint16 wArg0A, ci16 wArg0C, word16 * ptrArg0E, word16 * ptrArg12, union Eq_n & dxOut, union Eq_n & diOut)
+Eq_n fn0800-94B0(Eq_n ds, <anonymous> seg0800_t::* wArg02, <anonymous> seg0800_t::* wArg04, mp16 wArg06, Eq_n wArg08, uint16 wArg0A, ci16 wArg0C, word16 * ptrArg0E, word16 * ptrArg12, union Eq_n & dxOut, union Eq_n & diOut)
 {
 	union Eq_n Eq_n::* sp_n = fp - 0x0C;
 	byte bLoc03_n = 0x00;
@@ -15589,7 +15589,7 @@ l0800_A967:
 	}
 	si_n |= 0x40;
 l0800_A953:
-	*((word32) ds + 9044) = &Eq_n::tFFFFC7B5;
+	*((word32) ds + 9044) = &seg0800_t::tFFFFC7B5;
 	*ptrArg06 = dx_n;
 	*ptrArg02 = di_n;
 	ax_n = si_n;
@@ -17251,7 +17251,7 @@ l0800_BAAB:
 			Eq_n si_n = wArg0C;
 			if (wArg0C > 0x00)
 			{
-				*((word32) ds + 0x00002352) = &Eq_n::tFFFFC7F0;
+				*((word32) ds + 0x00002352) = &seg0800_t::tFFFFC7F0;
 				if ((wArg06 | wArg08) == 0x00)
 				{
 					cui16 dx_n;
@@ -17312,7 +17312,7 @@ void fn0800_BBE9(struct Eq_n * ptrArg02)
 	byte * ptrArg02_n = SEQ(wArg04_n, wArg02_n - 0x01);
 	int16 ax_n = (int16) *ptrArg02_n;
 	word16 cx_n;
-	struct Eq_n Eq_n::* bx_n = Eq_n::aFFFFBC39;
+	struct Eq_n seg0800_t::* bx_n = seg0800_t::aFFFFBC39;
 	for (cx_n = 0x04; cx_n != 0x00; --cx_n)
 	{
 		if ((seg0800->*bx_n).w0000 == ax_n)
@@ -17372,7 +17372,7 @@ word16 fn0800_BC49(Eq_n ptrArg02, byte * ptrArg06, byte * ptrArg0A, byte * ptrAr
 		wLoc06_n = v24_n;
 		int16 ax_n = (int16) (ss->*v24_n);
 		word16 cx_n;
-		struct Eq_n Eq_n::* bx_n = Eq_n::aFFFFBE1F;
+		struct Eq_n seg0800_t::* bx_n = seg0800_t::aFFFFBE1F;
 		for (cx_n = 0x07; cx_n != 0x00; --cx_n)
 		{
 			if ((seg0800->*bx_n).w0000 == ax_n)
@@ -17416,7 +17416,7 @@ word16 fn0800_BEA2(Eq_n cx, Eq_n dx, Eq_n ds, Eq_n ptrArg02, Eq_n dwArg06, ptr16
 word16 fn0800_BF18(Eq_n di, Eq_n ds, struct Eq_n Eq_n::* wArg06, Eq_n wArg08, ptr16 & diOut)
 {
 	ptr16 di_n;
-	word16 dx_n = fn0800-8F97(di, ds, &Eq_n::tFFFFBEE5, &Eq_n::tFFFFBF0D, fp + 0x02, ss, wArg06, wArg08, out di_n);
+	word16 dx_n = fn0800-8F97(di, ds, &seg0800_t::tFFFFBEE5, &seg0800_t::tFFFFBF0D, fp + 0x02, ss, wArg06, wArg08, out di_n);
 	diOut = di_n;
 	return dx_n;
 }

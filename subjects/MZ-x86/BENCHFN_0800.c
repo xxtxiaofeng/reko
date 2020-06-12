@@ -1871,7 +1871,7 @@ word16 _scanf(Eq_n di, struct Eq_n * es, Eq_n ds, struct Eq_n Eq_n::* wArg02, pt
 {
 	ptr16 Eq_n::* bp_n;
 	ptr16 bx_n;
-	word16 dx_n = __scanner(di, es, ds, &Eq_n::t07F2, &Eq_n::t1D65, 0x0342, wArg02, out bx_n, out bp_n);
+	word16 dx_n = __scanner(di, es, ds, &seg0800_t::t07F2, &seg0800_t::t1D65, 0x0342, wArg02, out bx_n, out bp_n);
 	ptr16 bp_n = ss->*bp_n;
 	bxOut = bx_n;
 	bpOut = bp_n;
@@ -1881,7 +1881,7 @@ word16 _scanf(Eq_n di, struct Eq_n * es, Eq_n ds, struct Eq_n Eq_n::* wArg02, pt
 // 0800:16F3: Register word16 __scanner(Register Eq_n di, Register (ptr16 Eq_n) es, Register Eq_n ds, Stack (memptr (ptr16 Eq_n) code) wArg02, Stack (memptr (ptr16 Eq_n) code) wArg04, Stack Eq_n wArg06, Stack (memptr Eq_n Eq_n) wArg08, Register out Eq_n bxOut, Register out ptr16 bpOut)
 // Called from:
 //      _scanf
-word16 __scanner(Eq_n di, struct Eq_n * es, Eq_n ds, <anonymous> Eq_n::* wArg02, <anonymous> Eq_n::* wArg04, Eq_n wArg06, struct Eq_n Eq_n::* wArg08, union Eq_n & bxOut, ptr16 & bpOut)
+word16 __scanner(Eq_n di, struct Eq_n * es, Eq_n ds, <anonymous> seg0800_t::* wArg02, <anonymous> seg0800_t::* wArg04, Eq_n wArg06, struct Eq_n Eq_n::* wArg08, union Eq_n & bxOut, ptr16 & bpOut)
 {
 	word16 wLoc28_n = 0x00;
 l0800_n:
@@ -2532,7 +2532,7 @@ l0800_nBC7:
 // 0800:1BCC: Register Eq_n __scantol(Register Eq_n ds, Stack (memptr (ptr16 Eq_n) code) wArg02, Stack (memptr (ptr16 Eq_n) code) wArg04, Stack Eq_n wArg06, Stack uint16 wArg08, Stack ci16 wArg0A, Stack (memptr Eq_n word16) wArg0C, Stack (memptr Eq_n Eq_n) wArg0E, Register out Eq_n dxOut, Register out Eq_n bxOut, Register out Eq_n diOut, Register out Eq_n esOut)
 // Called from:
 //      __scanner
-Eq_n __scantol(Eq_n ds, <anonymous> Eq_n::* wArg02, <anonymous> Eq_n::* wArg04, Eq_n wArg06, uint16 wArg08, ci16 wArg0A, word16 Eq_n::* wArg0C, union Eq_n Eq_n::* wArg0E, union Eq_n & dxOut, union Eq_n & bxOut, union Eq_n & diOut, union Eq_n & esOut)
+Eq_n __scantol(Eq_n ds, <anonymous> seg0800_t::* wArg02, <anonymous> seg0800_t::* wArg04, Eq_n wArg06, uint16 wArg08, ci16 wArg0A, word16 Eq_n::* wArg0C, union Eq_n Eq_n::* wArg0E, union Eq_n & dxOut, union Eq_n & bxOut, union Eq_n & diOut, union Eq_n & esOut)
 {
 	byte bLoc07_n = 0x00;
 	word16 wLoc06_n = 0x00;
