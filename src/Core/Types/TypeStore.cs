@@ -52,9 +52,15 @@ namespace Reko.Core.Types
             TypeVariables = new List<TypeVariable>();
             usedClasses = new SortedList<int, EquivalenceClass>();
             tvSources = new Dictionary<TypeVariable, Expression>();
+            SegmentTypes = new Dictionary<uint, StructureType>();
         }
 
+        /// <summary>
+        /// All the <see cref="TypeVariable"/>s of the program.
+        /// </summary>
         public List<TypeVariable> TypeVariables { get; private set; }
+
+        public Dictionary<uint, StructureType> SegmentTypes { get; private set; }
 
         public TypeVariable EnsureExpressionTypeVariable(TypeFactory factory, Expression e)
         {
@@ -198,8 +204,7 @@ namespace Reko.Core.Types
 
         public void WriteExpressionOf(TypeVariable tvMember, Formatter writer)
         {
-            Expression e;
-            if (tvSources.TryGetValue(tvMember, out e) && e != null)
+            if (tvSources.TryGetValue(tvMember, out Expression e) && e != null)
             {
                 writer.Write(" (in {0}", e);
                 if (e.DataType != null)
