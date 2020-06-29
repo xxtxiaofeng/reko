@@ -46,6 +46,7 @@ namespace Reko.Arch.Qualcomm
 
         public bool Sat { get; set; }
         public bool Rnd { get; set; }
+        public bool Lsl16 { get; set; }
 
         public override void Write(MachineInstructionWriter writer, MachineInstructionWriterOptions options)
         {
@@ -81,6 +82,10 @@ namespace Reko.Arch.Qualcomm
             if (Sat)
             {
                 writer.WriteString(":sat");
+            }
+            if (Lsl16)
+            {
+                writer.WriteString(":<<16");
             }
         }
     }
