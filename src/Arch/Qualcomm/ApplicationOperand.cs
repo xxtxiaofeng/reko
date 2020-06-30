@@ -39,15 +39,41 @@ namespace Reko.Arch.Qualcomm
 
         public override void Write(MachineInstructionWriter writer, MachineInstructionWriterOptions options)
         {
-            writer.WriteMnemonic(Mnemonic.ToString().Replace("__", "."));
-            var sep = "(";
-            foreach (var op in Operands)
+            switch (Mnemonic)
             {
-                writer.WriteString(sep);
-                op.Write(writer, options);
-                sep = ",";
+            case Mnemonic.EQ:
+                Operands[0].Write(writer, options);
+                writer.WriteString("=");
+                Operands[1].Write(writer, options);
+                break;
+            case Mnemonic.LE:
+                Operands[0].Write(writer, options);
+                writer.WriteString("<=");
+                Operands[1].Write(writer, options);
+                break;
+            case Mnemonic.GE:
+                Operands[0].Write(writer, options);
+                writer.WriteString(">=");
+                Operands[1].Write(writer, options);
+                break;
+            case Mnemonic.NE:
+                Operands[0].Write(writer, options);
+                writer.WriteString("!=");
+                Operands[1].Write(writer, options);
+                break;
+
+            default:
+                writer.WriteMnemonic(Mnemonic.ToString().Replace("__", "."));
+                var sep = "(";
+                foreach (var op in Operands)
+                {
+                    writer.WriteString(sep);
+                    op.Write(writer, options);
+                    sep = ",";
+                }
+                writer.WriteString(")");
+                break;
             }
-            writer.WriteString(")");
         }
     }
 }
