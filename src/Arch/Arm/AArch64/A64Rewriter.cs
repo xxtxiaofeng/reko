@@ -236,7 +236,7 @@ namespace Reko.Arch.Arm.AArch64
         private void EmitUnitTest()
         {
             var testGenSvc = arch.Services.GetService<ITestGenerationService>();
-            testGenSvc?.ReportMissingRewriter("A64Rw", this.instr, rdr, "");
+            testGenSvc?.ReportMissingRewriter("A64Rw", this.instr, instr.Mnemonic.ToString(), rdr, "");
         }
 
         private Expression RewriteOp(MachineOperand op, bool maybe0 = false)
