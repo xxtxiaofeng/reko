@@ -61,7 +61,7 @@ namespace Reko.CmdLine
             services.AddService<ITypeLibraryLoaderService>(new TypeLibraryLoaderServiceImpl(services));
             services.AddService<IDiagnosticsService>(diagnosticSvc);
             services.AddService<IFileSystemService>(fsSvc);
-            services.AddService<IDecompiledFileService>(new DecompiledFileService(fsSvc));
+            services.AddService<IDecompiledFileService>(new DecompiledFileService(fsSvc, listener));
             services.AddService<ITestGenerationService>(new TestGenerationService(services));
             var ldr = new Loader(services);
             var decompiler = new Decompiler(ldr, services);
