@@ -98,7 +98,7 @@ def clear_dir(dir_name, files):
     if failedFiles:
         time.sleep(2)   # seconds
         for filename in failedFiles:
-            if os.exists(filename):
+            if os.path.exists(filename):
                 os.remove(filename)
 
 def strip_id_nums(dirs):
