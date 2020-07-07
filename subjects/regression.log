@@ -10,13 +10,13 @@
    at Reko.Typing.ExpressionTypeDescender.VisitMemoryAccess(Expression basePointer, TypeVariable tvAccess, Expression effectiveAddress, Expression globals) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\ExpressionTypeDescender.cs:line 586
    at Reko.Typing.ExpressionTypeDescender.VisitMemoryAccess(MemoryAccess access, TypeVariable tv) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\ExpressionTypeDescender.cs:line 517
    at Reko.Core.Expressions.MemoryAccess.Accept[T,C](ExpressionVisitor`2 v, C context) in D:\dev\uxmal\reko\master\src\Core\Expressions\MemoryAccess.cs:line 71
-   at Reko.Typing.TypeCollector.VisitStore(Store store) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 236
+   at Reko.Typing.TypeCollector.VisitStore(Store store) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 242
    at Reko.Core.Code.Store.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Assignment.cs:line 87
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 0000A284: warning: Expected sizes of arrays to have been determined by now
-20000000: warning: Expected sizes of arrays to have been determined by now
 0000A2A4: warning: Expected sizes of arrays to have been determined by now
 0000A554: warning: Expected sizes of arrays to have been determined by now
+20000000: warning: Expected sizes of arrays to have been determined by now
 0000A284: warning: Expected sizes of arrays to have been determined by now
 0000A2A4: warning: Expected sizes of arrays to have been determined by now
 0000A554: warning: Expected sizes of arrays to have been determined by now
@@ -35,7 +35,7 @@
    at Reko.Core.Expressions.Slice.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\Slice.cs:line 64
    at Reko.Core.Expressions.ExpressionTypeAscenderBase.VisitBinaryExpression(BinaryExpression binExp) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 96
    at Reko.Core.Expressions.BinaryExpression.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 61
-   at Reko.Typing.TypeCollector.VisitBranch(Branch branch) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 151
+   at Reko.Typing.TypeCollector.VisitBranch(Branch branch) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 157
    at Reko.Core.Code.Branch.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Branch.cs:line 55
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 0000D648: error: An error occurred while processing the statement r1 = r9_1067 + (r11_1016 - 0x30<32>).
@@ -45,7 +45,7 @@
    at Reko.Core.Expressions.BinaryExpression.Accept[T,C](ExpressionVisitor`2 v, C context) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 56
    at Reko.Typing.ExpressionTypeDescender.VisitBinaryExpression(BinaryExpression binExp, TypeVariable tv) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\ExpressionTypeDescender.cs:line 354
    at Reko.Core.Expressions.BinaryExpression.Accept[T,C](ExpressionVisitor`2 v, C context) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 56
-   at Reko.Typing.TypeCollector.VisitAssignment(Assignment ass) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 141
+   at Reko.Typing.TypeCollector.VisitAssignment(Assignment ass) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 147
    at Reko.Core.Code.Assignment.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Assignment.cs:line 54
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 0000DCDE: error: An error occurred while processing the statement word32 r8_3109 = r5_1001 - r12_1006.
@@ -53,7 +53,7 @@
        at Reko.Core.Expressions.ExpressionTypeAscenderBase.PullDiffDataType(DataType dtLeft, DataType dtRight) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 292
    at Reko.Core.Expressions.ExpressionTypeAscenderBase.VisitBinaryExpression(BinaryExpression binExp) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 113
    at Reko.Core.Expressions.BinaryExpression.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 61
-   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 177
+   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 183
    at Reko.Core.Code.Declaration.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Declaration.cs:line 49
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 l00009F1C: warning: Non-integral switch expression
@@ -65,7 +65,7 @@ fn0000ACB0: error: An error occurred while rewriting procedure to high-level lan
    at Reko.Core.Lib.DominatorGraph`1..ctor(DirectedGraph`1 graph, T entryNode) in D:\dev\uxmal\reko\master\src\Core\Lib\DominatorGraph.cs:line 45
    at Reko.Structure.StructureAnalysis.Execute() in D:\dev\uxmal\reko\master\src\Decompiler\Structure\StructureAnalysis.cs:line 139
    at Reko.Structure.StructureAnalysis.Structure() in D:\dev\uxmal\reko\master\src\Decompiler\Structure\StructureAnalysis.cs:line 74
-   at Reko.Decompiler.StructureProgram() in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 632
+   at Reko.Decompiler.StructureProgram() in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 647
 000099B4: warning: Expected sizes of arrays to have been determined by now
 0000C2E0: warning: Expected sizes of arrays to have been determined by now
 000099B4: warning: Expected sizes of arrays to have been determined by now
@@ -108,7 +108,7 @@ Parameter name: index
    at Reko.Structure.CompoundConditionCoalescer.MaybeCoalesce(Block block) in D:\dev\uxmal\reko\master\src\Decompiler\Structure\CompoundConditionCoalescer.cs:line 96
    at Reko.Structure.CompoundConditionCoalescer.Transform() in D:\dev\uxmal\reko\master\src\Decompiler\Structure\CompoundConditionCoalescer.cs:line 62
    at Reko.Structure.StructureAnalysis.Structure() in D:\dev\uxmal\reko\master\src\Decompiler\Structure\StructureAnalysis.cs:line 72
-   at Reko.Decompiler.StructureProgram() in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 632
+   at Reko.Decompiler.StructureProgram() in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 647
 00017540: warning: Expected sizes of arrays to have been determined by now
 0002B411: warning: Expected sizes of arrays to have been determined by now
 00017540: warning: Expected sizes of arrays to have been determined by now
@@ -142,7 +142,7 @@ Parameter name: index
    at Reko.Core.Expressions.BinaryExpression.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 61
    at Reko.Core.Expressions.ExpressionTypeAscenderBase.VisitCast(Cast cast) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 297
    at Reko.Core.Expressions.Cast.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\Cast.cs:line 54
-   at Reko.Typing.TypeCollector.VisitAssignment(Assignment ass) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 139
+   at Reko.Typing.TypeCollector.VisitAssignment(Assignment ass) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 145
    at Reko.Core.Code.Assignment.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Assignment.cs:line 54
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 0000000000406FC3: error: An error occurred while processing the statement word64 r13_1041 = r13_1009 - (fp - 0xE88<64>).
@@ -150,7 +150,7 @@ Parameter name: index
        at Reko.Core.Expressions.ExpressionTypeAscenderBase.PullDiffDataType(DataType dtLeft, DataType dtRight) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 280
    at Reko.Core.Expressions.ExpressionTypeAscenderBase.VisitBinaryExpression(BinaryExpression binExp) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 113
    at Reko.Core.Expressions.BinaryExpression.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 61
-   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 177
+   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 183
    at Reko.Core.Code.Declaration.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Declaration.cs:line 49
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 000000000040C39F: error: An error occurred while processing the statement word64 rax_1157 = memcpy(r9_1115 - r15_1102, fp - 0x78<64> + r14_1103, r15_1102).
@@ -160,7 +160,7 @@ Parameter name: index
    at Reko.Core.Expressions.BinaryExpression.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 61
    at Reko.Core.Expressions.ExpressionTypeAscenderBase.VisitApplication(Application appl) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 65
    at Reko.Core.Expressions.Application.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\Application.cs:line 57
-   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 177
+   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 183
    at Reko.Core.Code.Declaration.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Declaration.cs:line 49
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 000000000040C59B: error: An error occurred while processing the statement r8_1052 = memcpy(r8_1052 - 1<64> - r11_66, r15_480, r11_66).
@@ -170,7 +170,7 @@ Parameter name: index
    at Reko.Core.Expressions.BinaryExpression.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 61
    at Reko.Core.Expressions.ExpressionTypeAscenderBase.VisitApplication(Application appl) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 65
    at Reko.Core.Expressions.Application.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\Application.cs:line 57
-   at Reko.Typing.TypeCollector.VisitAssignment(Assignment ass) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 139
+   at Reko.Typing.TypeCollector.VisitAssignment(Assignment ass) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 145
    at Reko.Core.Code.Assignment.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Assignment.cs:line 54
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 000000000040D641: error: An error occurred while processing the statement word64 rdx_132 = qwLoc30_291 - qwLoc40_295.
@@ -178,7 +178,7 @@ Parameter name: index
        at Reko.Core.Expressions.ExpressionTypeAscenderBase.PullDiffDataType(DataType dtLeft, DataType dtRight) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 280
    at Reko.Core.Expressions.ExpressionTypeAscenderBase.VisitBinaryExpression(BinaryExpression binExp) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 113
    at Reko.Core.Expressions.BinaryExpression.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 61
-   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 177
+   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 183
    at Reko.Core.Code.Declaration.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Declaration.cs:line 49
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 000000000040DBC3: error: An error occurred while processing the statement word64 rdx_1085 = qwLoc98_1434 - rbx_100.
@@ -186,7 +186,7 @@ Parameter name: index
        at Reko.Core.Expressions.ExpressionTypeAscenderBase.PullDiffDataType(DataType dtLeft, DataType dtRight) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 280
    at Reko.Core.Expressions.ExpressionTypeAscenderBase.VisitBinaryExpression(BinaryExpression binExp) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 113
    at Reko.Core.Expressions.BinaryExpression.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 61
-   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 177
+   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 183
    at Reko.Core.Code.Declaration.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Declaration.cs:line 49
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 0000000000411B41: error: An error occurred while processing the statement word64 rdx_231 = rdx_189 - 3<64> - (al_220 * 2<8> <u 0<8>) - (fp - 0xB8<64>).
@@ -196,7 +196,7 @@ Parameter name: index
    at Reko.Core.Expressions.BinaryExpression.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 61
    at Reko.Core.Expressions.ExpressionTypeAscenderBase.VisitBinaryExpression(BinaryExpression binExp) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 96
    at Reko.Core.Expressions.BinaryExpression.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 61
-   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 177
+   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 183
    at Reko.Core.Code.Declaration.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Declaration.cs:line 49
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 0000000000411B7C: error: An error occurred while processing the statement word64 r10_275 = r10_207 - 3<64> - (al_261 * 2<8> <u 0<8>) - (fp - 0x78<64>).
@@ -206,62 +206,62 @@ Parameter name: index
    at Reko.Core.Expressions.BinaryExpression.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 61
    at Reko.Core.Expressions.ExpressionTypeAscenderBase.VisitBinaryExpression(BinaryExpression binExp) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 96
    at Reko.Core.Expressions.BinaryExpression.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 61
-   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 177
+   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 183
    at Reko.Core.Code.Declaration.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Declaration.cs:line 49
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 fn000000000040E450: warning: Structure analysis stopped making progress, quitting. Please report this issue at https://github.com/uxmal/reko
-00411F40: warning: Expected sizes of arrays to have been determined by now
-00412C00: warning: Expected sizes of arrays to have been determined by now
-00412C60: warning: Expected sizes of arrays to have been determined by now
-00412D00: warning: Expected sizes of arrays to have been determined by now
-00412EC0: warning: Expected sizes of arrays to have been determined by now
-00412F00: warning: Expected sizes of arrays to have been determined by now
-00412F50: warning: Expected sizes of arrays to have been determined by now
-00412F80: warning: Expected sizes of arrays to have been determined by now
-00412FB0: warning: Expected sizes of arrays to have been determined by now
-00412FE0: warning: Expected sizes of arrays to have been determined by now
-00413010: warning: Expected sizes of arrays to have been determined by now
-00413040: warning: Expected sizes of arrays to have been determined by now
-004135E0: warning: Expected sizes of arrays to have been determined by now
-004136B0: warning: Expected sizes of arrays to have been determined by now
-004136C0: warning: Expected sizes of arrays to have been determined by now
-00413700: warning: Expected sizes of arrays to have been determined by now
-00415F50: warning: Expected sizes of arrays to have been determined by now
-00415F60: warning: Expected sizes of arrays to have been determined by now
-00415F78: warning: Expected sizes of arrays to have been determined by now
-00416068: warning: Expected sizes of arrays to have been determined by now
-00416460: warning: Expected sizes of arrays to have been determined by now
-00416480: warning: Expected sizes of arrays to have been determined by now
-004164E8: warning: Expected sizes of arrays to have been determined by now
-00416C18: warning: Expected sizes of arrays to have been determined by now
-00416E38: warning: Expected sizes of arrays to have been determined by now
-0061B040: warning: Expected sizes of arrays to have been determined by now
-00411F40: warning: Expected sizes of arrays to have been determined by now
-00412C00: warning: Expected sizes of arrays to have been determined by now
-00412C60: warning: Expected sizes of arrays to have been determined by now
-00412D00: warning: Expected sizes of arrays to have been determined by now
-00412EC0: warning: Expected sizes of arrays to have been determined by now
-00412F00: warning: Expected sizes of arrays to have been determined by now
-00412F50: warning: Expected sizes of arrays to have been determined by now
-00412F80: warning: Expected sizes of arrays to have been determined by now
-00412FB0: warning: Expected sizes of arrays to have been determined by now
-00412FE0: warning: Expected sizes of arrays to have been determined by now
-00413010: warning: Expected sizes of arrays to have been determined by now
-00413040: warning: Expected sizes of arrays to have been determined by now
-004135E0: warning: Expected sizes of arrays to have been determined by now
-004136B0: warning: Expected sizes of arrays to have been determined by now
-004136C0: warning: Expected sizes of arrays to have been determined by now
-00413700: warning: Expected sizes of arrays to have been determined by now
-00415F50: warning: Expected sizes of arrays to have been determined by now
-00415F60: warning: Expected sizes of arrays to have been determined by now
-00415F78: warning: Expected sizes of arrays to have been determined by now
-00416068: warning: Expected sizes of arrays to have been determined by now
-00416460: warning: Expected sizes of arrays to have been determined by now
-00416480: warning: Expected sizes of arrays to have been determined by now
-004164E8: warning: Expected sizes of arrays to have been determined by now
-00416C18: warning: Expected sizes of arrays to have been determined by now
-00416E38: warning: Expected sizes of arrays to have been determined by now
-0061B040: warning: Expected sizes of arrays to have been determined by now
+0000000000411F40: warning: Expected sizes of arrays to have been determined by now
+0000000000412C00: warning: Expected sizes of arrays to have been determined by now
+0000000000412C60: warning: Expected sizes of arrays to have been determined by now
+0000000000412D00: warning: Expected sizes of arrays to have been determined by now
+0000000000412EC0: warning: Expected sizes of arrays to have been determined by now
+0000000000412F00: warning: Expected sizes of arrays to have been determined by now
+0000000000412F50: warning: Expected sizes of arrays to have been determined by now
+0000000000412F80: warning: Expected sizes of arrays to have been determined by now
+0000000000412FB0: warning: Expected sizes of arrays to have been determined by now
+0000000000412FE0: warning: Expected sizes of arrays to have been determined by now
+0000000000413010: warning: Expected sizes of arrays to have been determined by now
+0000000000413040: warning: Expected sizes of arrays to have been determined by now
+00000000004135E0: warning: Expected sizes of arrays to have been determined by now
+00000000004136B0: warning: Expected sizes of arrays to have been determined by now
+00000000004136C0: warning: Expected sizes of arrays to have been determined by now
+0000000000413700: warning: Expected sizes of arrays to have been determined by now
+0000000000415F50: warning: Expected sizes of arrays to have been determined by now
+0000000000415F60: warning: Expected sizes of arrays to have been determined by now
+0000000000415F78: warning: Expected sizes of arrays to have been determined by now
+0000000000416068: warning: Expected sizes of arrays to have been determined by now
+0000000000416460: warning: Expected sizes of arrays to have been determined by now
+0000000000416480: warning: Expected sizes of arrays to have been determined by now
+00000000004164E8: warning: Expected sizes of arrays to have been determined by now
+0000000000416C18: warning: Expected sizes of arrays to have been determined by now
+0000000000416E38: warning: Expected sizes of arrays to have been determined by now
+000000000061B040: warning: Expected sizes of arrays to have been determined by now
+0000000000411F40: warning: Expected sizes of arrays to have been determined by now
+0000000000412C00: warning: Expected sizes of arrays to have been determined by now
+0000000000412C60: warning: Expected sizes of arrays to have been determined by now
+0000000000412D00: warning: Expected sizes of arrays to have been determined by now
+0000000000412EC0: warning: Expected sizes of arrays to have been determined by now
+0000000000412F00: warning: Expected sizes of arrays to have been determined by now
+0000000000412F50: warning: Expected sizes of arrays to have been determined by now
+0000000000412F80: warning: Expected sizes of arrays to have been determined by now
+0000000000412FB0: warning: Expected sizes of arrays to have been determined by now
+0000000000412FE0: warning: Expected sizes of arrays to have been determined by now
+0000000000413010: warning: Expected sizes of arrays to have been determined by now
+0000000000413040: warning: Expected sizes of arrays to have been determined by now
+00000000004135E0: warning: Expected sizes of arrays to have been determined by now
+00000000004136B0: warning: Expected sizes of arrays to have been determined by now
+00000000004136C0: warning: Expected sizes of arrays to have been determined by now
+0000000000413700: warning: Expected sizes of arrays to have been determined by now
+0000000000415F50: warning: Expected sizes of arrays to have been determined by now
+0000000000415F60: warning: Expected sizes of arrays to have been determined by now
+0000000000415F78: warning: Expected sizes of arrays to have been determined by now
+0000000000416068: warning: Expected sizes of arrays to have been determined by now
+0000000000416460: warning: Expected sizes of arrays to have been determined by now
+0000000000416480: warning: Expected sizes of arrays to have been determined by now
+00000000004164E8: warning: Expected sizes of arrays to have been determined by now
+0000000000416C18: warning: Expected sizes of arrays to have been determined by now
+0000000000416E38: warning: Expected sizes of arrays to have been determined by now
+000000000061B040: warning: Expected sizes of arrays to have been determined by now
 === Elf\x86-64\pngpixel\pngpixel
 *** Elf\x86-64\pngpixel\pngpixel
 00000000004013B1: warning: Unable to resolve imported reference png_create_read_struct.
@@ -308,10 +308,10 @@ fn000000000040E450: warning: Structure analysis stopped making progress, quittin
 0000000000400CC0: warning: Unable to resolve imported reference __gmon_start__.
 l0000000000400E2D: warning: Non-integral switch expression
 l0000000000400F4C: warning: Non-integral switch expression
-00401958: warning: Expected sizes of arrays to have been determined by now
-00601E00: warning: Expected sizes of arrays to have been determined by now
-00401958: warning: Expected sizes of arrays to have been determined by now
-00601E00: warning: Expected sizes of arrays to have been determined by now
+0000000000401958: warning: Expected sizes of arrays to have been determined by now
+0000000000601E00: warning: Expected sizes of arrays to have been determined by now
+0000000000401958: warning: Expected sizes of arrays to have been determined by now
+0000000000601E00: warning: Expected sizes of arrays to have been determined by now
 === Elf\x86-64\retpoline\retpoline.elf
 === Elf\x86-64\retpoline\retpoline_stripped.elf
 === Elf\x86-64\simd_double\simd_double
@@ -349,7 +349,7 @@ l0000000000400F4C: warning: Non-integral switch expression
        at Reko.Typing.ExpressionTypeDescender.PushMinuendDataType(DataType dtDiff, DataType dtSub) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\ExpressionTypeDescender.cs:line 411
    at Reko.Typing.ExpressionTypeDescender.VisitBinaryExpression(BinaryExpression binExp, TypeVariable tv) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\ExpressionTypeDescender.cs:line 255
    at Reko.Core.Expressions.BinaryExpression.Accept[T,C](ExpressionVisitor`2 v, C context) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 56
-   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 179
+   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 185
    at Reko.Core.Code.Declaration.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Declaration.cs:line 49
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 0800:1358: error: An error occurred while processing the statement word16 di_330 = di_315 - (fp - 0x8A<16>).
@@ -357,7 +357,7 @@ l0000000000400F4C: warning: Non-integral switch expression
        at Reko.Typing.ExpressionTypeDescender.PushMinuendDataType(DataType dtDiff, DataType dtSub) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\ExpressionTypeDescender.cs:line 411
    at Reko.Typing.ExpressionTypeDescender.VisitBinaryExpression(BinaryExpression binExp, TypeVariable tv) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\ExpressionTypeDescender.cs:line 255
    at Reko.Core.Expressions.BinaryExpression.Accept[T,C](ExpressionVisitor`2 v, C context) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 56
-   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 179
+   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 185
    at Reko.Core.Code.Declaration.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Declaration.cs:line 49
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 l0800_112E: warning: Non-integral switch expression
@@ -368,7 +368,7 @@ l0800_17AE: warning: Non-integral switch expression
 error: An error occurred during decompilation. System.InvalidOperationException: Missing PIC model user options.
    at Reko.Arch.MicrochipPIC.Common.PICArchitecture.LoadUserOptions(Dictionary`2 options) in D:\dev\uxmal\reko\master\src\Arch\Microchip\Common\PICArchitecture.cs:line 304
    at Reko.Loading.Loader.LoadRawImage(String filename, Byte[] image, Address addrLoad, LoadDetails details) in D:\dev\uxmal\reko\master\src\Decompiler\Loading\Loader.cs:line 163
-   at Reko.Decompiler.LoadRawImage(String fileName, LoadDetails raw) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 257
+   at Reko.Decompiler.LoadRawImage(String fileName, LoadDetails raw) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 260
    at Reko.CmdLine.CmdLineDriver.LoadProgram(Dictionary`2 pArgs, LoadDetails loadDetails) in D:\dev\uxmal\reko\master\src\Drivers\CmdLine\CmdLineDriver.cs:line 264
    at Reko.CmdLine.CmdLineDriver.DecompileRawImage(Dictionary`2 pArgs) in D:\dev\uxmal\reko\master\src\Drivers\CmdLine\CmdLineDriver.cs:line 236
 === Microchip\C18\PIC18\PIC18Legacy.hex
@@ -376,10 +376,38 @@ error: An error occurred during decompilation. System.InvalidOperationException:
 error: An error occurred during decompilation. System.InvalidOperationException: Missing PIC model user options.
    at Reko.Arch.MicrochipPIC.Common.PICArchitecture.LoadUserOptions(Dictionary`2 options) in D:\dev\uxmal\reko\master\src\Arch\Microchip\Common\PICArchitecture.cs:line 304
    at Reko.Loading.Loader.LoadRawImage(String filename, Byte[] image, Address addrLoad, LoadDetails details) in D:\dev\uxmal\reko\master\src\Decompiler\Loading\Loader.cs:line 163
-   at Reko.Decompiler.LoadRawImage(String fileName, LoadDetails raw) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 257
+   at Reko.Decompiler.LoadRawImage(String fileName, LoadDetails raw) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 260
    at Reko.CmdLine.CmdLineDriver.LoadProgram(Dictionary`2 pArgs, LoadDetails loadDetails) in D:\dev\uxmal\reko\master\src\Drivers\CmdLine\CmdLineDriver.cs:line 264
    at Reko.CmdLine.CmdLineDriver.DecompileRawImage(Dictionary`2 pArgs) in D:\dev\uxmal\reko\master\src\Drivers\CmdLine\CmdLineDriver.cs:line 236
 === OpenRISC\sunxi\blob.dcproject
+*** OpenRISC\sunxi\blob.dcproject
+blob.bin: error: Using SingleFilePolicy blob.bin
+blob.bin: error: Using SingleFilePolicy blob.bin
+fn0000F8E8: warning: Structure analysis stopped making progress, quitting. Please report this issue at https://github.com/uxmal/reko
+blob.bin: error: Using SingleFilePolicy blob.bin
+00003CA8: warning: Expected sizes of arrays to have been determined by now
+000100B8: warning: Expected sizes of arrays to have been determined by now
+00012478: warning: Expected sizes of arrays to have been determined by now
+00012490: warning: Expected sizes of arrays to have been determined by now
+00012510: warning: Expected sizes of arrays to have been determined by now
+00012590: warning: Expected sizes of arrays to have been determined by now
+00012B68: warning: Expected sizes of arrays to have been determined by now
+00012BA4: warning: Expected sizes of arrays to have been determined by now
+0001300E: warning: Expected sizes of arrays to have been determined by now
+000137E8: warning: Expected sizes of arrays to have been determined by now
+00013974: warning: Expected sizes of arrays to have been determined by now
+blob.bin: error: Using SingleFilePolicy blob.bin
+00003CA8: warning: Expected sizes of arrays to have been determined by now
+000100B8: warning: Expected sizes of arrays to have been determined by now
+00012478: warning: Expected sizes of arrays to have been determined by now
+00012490: warning: Expected sizes of arrays to have been determined by now
+00012510: warning: Expected sizes of arrays to have been determined by now
+00012590: warning: Expected sizes of arrays to have been determined by now
+00012B68: warning: Expected sizes of arrays to have been determined by now
+00012BA4: warning: Expected sizes of arrays to have been determined by now
+0001300E: warning: Expected sizes of arrays to have been determined by now
+000137E8: warning: Expected sizes of arrays to have been determined by now
+00013974: warning: Expected sizes of arrays to have been determined by now
 === PDP-11\lunar.lda
 === PDP-11\space.dcproject
 *** PDP-11\space.dcproject
@@ -406,7 +434,7 @@ error: An error occurred during decompilation. System.InvalidOperationException:
    at Reko.Core.Expressions.BinaryExpression.Accept[T,C](ExpressionVisitor`2 v, C context) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 56
    at Reko.Typing.ExpressionTypeDescender.VisitBinaryExpression(BinaryExpression binExp, TypeVariable tv) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\ExpressionTypeDescender.cs:line 354
    at Reko.Core.Expressions.BinaryExpression.Accept[T,C](ExpressionVisitor`2 v, C context) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 56
-   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 179
+   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 185
    at Reko.Core.Code.Declaration.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Declaration.cs:line 49
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 02DC: error: An error occurred while processing the statement branch r4_110 - 0x38<16> - r2_132 >u 0<16> l02D8.
@@ -416,14 +444,14 @@ error: An error occurred during decompilation. System.InvalidOperationException:
    at Reko.Core.Expressions.BinaryExpression.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 61
    at Reko.Core.Expressions.ExpressionTypeAscenderBase.VisitBinaryExpression(BinaryExpression binExp) in D:\dev\uxmal\reko\master\src\Core\Expressions\ExpressionTypeAscenderBase.cs:line 96
    at Reko.Core.Expressions.BinaryExpression.Accept[T](ExpressionVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 61
-   at Reko.Typing.TypeCollector.VisitBranch(Branch branch) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 151
+   at Reko.Typing.TypeCollector.VisitBranch(Branch branch) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 157
    at Reko.Core.Code.Branch.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Branch.cs:line 55
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 fn0EF8: warning: Structure analysis stopped making progress, quitting. Please report this issue at https://github.com/uxmal/reko
-000047E2: warning: Expected sizes of arrays to have been determined by now
-0000541C: warning: Expected sizes of arrays to have been determined by now
-000047E2: warning: Expected sizes of arrays to have been determined by now
-0000541C: warning: Expected sizes of arrays to have been determined by now
+47E2: warning: Expected sizes of arrays to have been determined by now
+541C: warning: Expected sizes of arrays to have been determined by now
+47E2: warning: Expected sizes of arrays to have been determined by now
+541C: warning: Expected sizes of arrays to have been determined by now
 === PDP-11\spcinv.sav
 === PE\MIPS\swlswr\test.exe
 === PE\PPC\hello_ppc.exe
@@ -446,6 +474,7 @@ fn0EF8: warning: Structure analysis stopped making progress, quitting. Please re
 0001E734: warning: Unable to determine size of call or jump table; there may be more than 2 entries.
 000257A4: warning: Unable to determine size of call or jump table; there may be more than 2 entries.
 0001E3F0: warning: Unable to determine size of call or jump table; there may be more than 2 entries.
+MicroBlaze.corpus: error: Using SingleFilePolicy MicroBlaze.corpus
 error: An error occurred during decompilation. System.NullReferenceException: Object reference not set to an instance of an object.
    at Reko.Analysis.StackPointerBackpropagator.MatchStackOffsetPattern(Identifier sp) in D:\dev\uxmal\reko\master\src\Decompiler\Analysis\StackPointerBackpropagator.cs:line 124
    at Reko.Analysis.StackPointerBackpropagator.BackpropagateStackPointer(Identifier spAtExit) in D:\dev\uxmal\reko\master\src\Decompiler\Analysis\StackPointerBackpropagator.cs:line 93
@@ -867,6 +896,11 @@ Parameter name: key
    at Reko.Analysis.WebBuilder.Transform() in D:\dev\uxmal\reko\master\src\Decompiler\Analysis\WebBuilder.cs:line 112
 fn000125CA: warning: Structure analysis stopped making progress, quitting. Please report this issue at https://github.com/uxmal/reko
 === i8051\reko-825\ledwith8051.dcproject
+*** i8051\reko-825\ledwith8051.dcproject
+ledwith8051.hex: error: Using SingleFilePolicy ledwith8051.hex
+ledwith8051.hex: error: Using SingleFilePolicy ledwith8051.hex
+ledwith8051.hex: error: Using SingleFilePolicy ledwith8051.hex
+ledwith8051.hex: error: Using SingleFilePolicy ledwith8051.hex
 === i8051\rtl8188efw.dcproject
 === regressions\angr-148\test
 === regressions\reko-121\m68k_jump.dcproject
@@ -928,7 +962,7 @@ l0800_8FD8: warning: Phi functions will be ignored by type analysis. This may be
        at Reko.Typing.ExpressionTypeDescender.PushMinuendDataType(DataType dtDiff, DataType dtSub) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\ExpressionTypeDescender.cs:line 411
    at Reko.Typing.ExpressionTypeDescender.VisitBinaryExpression(BinaryExpression binExp, TypeVariable tv) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\ExpressionTypeDescender.cs:line 255
    at Reko.Core.Expressions.BinaryExpression.Accept[T,C](ExpressionVisitor`2 v, C context) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 56
-   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 179
+   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 185
    at Reko.Core.Code.Declaration.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Declaration.cs:line 49
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
 1483:0C7D: error: An error occurred while processing the statement word16 ax_83 = bx_55 - 0x903<16> - (SLICE(dh_ax_143, byte, 16) <u 0<8>).
@@ -936,10 +970,65 @@ l0800_8FD8: warning: Phi functions will be ignored by type analysis. This may be
        at Reko.Typing.ExpressionTypeDescender.PushMinuendDataType(DataType dtDiff, DataType dtSub) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\ExpressionTypeDescender.cs:line 411
    at Reko.Typing.ExpressionTypeDescender.VisitBinaryExpression(BinaryExpression binExp, TypeVariable tv) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\ExpressionTypeDescender.cs:line 255
    at Reko.Core.Expressions.BinaryExpression.Accept[T,C](ExpressionVisitor`2 v, C context) in D:\dev\uxmal\reko\master\src\Core\Expressions\BinaryExpression.cs:line 56
-   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 179
+   at Reko.Typing.TypeCollector.VisitDeclaration(Declaration decl) in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 185
    at Reko.Core.Code.Declaration.Accept(InstructionVisitor v) in D:\dev\uxmal\reko\master\src\Core\Code\Declaration.cs:line 49
    at Reko.Typing.TypeCollector.CollectTypes() in D:\dev\uxmal\reko\master\src\Decompiler\Typing\TypeCollector.cs:line 77
+83BA: error: Failed to write global variable g_t83BA.
+    Index was outside the bounds of the array.
+       at Reko.Core.MemoryArea.TryReadByte(Byte[] img, Int64 off, Byte& b) in D:\dev\uxmal\reko\master\src\Core\MemoryArea.cs:line 663
+   at Reko.Core.MemoryArea.TryReadLe(Byte[] abImage, Int64 imageOffset, PrimitiveType type, Constant& c) in D:\dev\uxmal\reko\master\src\Core\MemoryArea.cs:line 240
+   at Reko.Core.MemoryArea.ReadLe(Byte[] abImage, Int64 imageOffset, PrimitiveType type) in D:\dev\uxmal\reko\master\src\Core\MemoryArea.cs:line 206
+   at Reko.Core.MemoryArea.TryReadLe(Int64 imageOffset, PrimitiveType type, Constant& c) in D:\dev\uxmal\reko\master\src\Core\MemoryArea.cs:line 174
+   at Reko.Core.ImageReader.TryReadLe(PrimitiveType dataType, Constant& c) in D:\dev\uxmal\reko\master\src\Core\ImageReader.cs:line 184
+   at Reko.Core.LeImageReader.TryRead(PrimitiveType dataType, Constant& c) in D:\dev\uxmal\reko\master\src\Core\EndianImageReader.cs:line 204
+   at Reko.Core.Output.GlobalDataWriter.VisitPrimitive(PrimitiveType pt) in D:\dev\uxmal\reko\master\src\Core\Output\GlobalDataWriter.cs:line 221
+   at Reko.Core.Types.PrimitiveType.Accept[T](IDataTypeVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Types\PrimitiveType.cs:line 99
+   at Reko.Core.Output.GlobalDataWriter.VisitUnion(UnionType ut) in D:\dev\uxmal\reko\master\src\Core\Output\GlobalDataWriter.cs:line 373
+   at Reko.Core.Types.UnionType.Accept[T](IDataTypeVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Types\UnionType.cs:line 81
+   at Reko.Core.Output.GlobalDataWriter.VisitEquivalenceClass(EquivalenceClass eq) in D:\dev\uxmal\reko\master\src\Core\Output\GlobalDataWriter.cs:line 194
+   at Reko.Core.Types.EquivalenceClass.Accept[T](IDataTypeVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Types\EquivalenceClass.cs:line 54
+   at Reko.Core.Output.GlobalDataWriter.VisitStructure(StructureType str) in D:\dev\uxmal\reko\master\src\Core\Output\GlobalDataWriter.cs:line 336
+   at Reko.Core.Types.StructureType.Accept[T](IDataTypeVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Types\StructureType.cs:line 59
+   at Reko.Core.Output.GlobalDataWriter.VisitEquivalenceClass(EquivalenceClass eq) in D:\dev\uxmal\reko\master\src\Core\Output\GlobalDataWriter.cs:line 194
+   at Reko.Core.Types.EquivalenceClass.Accept[T](IDataTypeVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Types\EquivalenceClass.cs:line 54
+   at Reko.Core.Output.GlobalDataWriter.WriteGlobalVariable(Address address, DataType dataType, String name) in D:\dev\uxmal\reko\master\src\Core\Output\GlobalDataWriter.cs:line 123
+0800:4F14: warning: Expected sizes of arrays to have been determined by now
+0800:4F1C: warning: Expected sizes of arrays to have been determined by now
+0800:4F24: warning: Expected sizes of arrays to have been determined by now
+0800:6EBC: warning: Expected sizes of arrays to have been determined by now
+0800:6ECA: warning: Expected sizes of arrays to have been determined by now
+0800:6ED8: warning: Expected sizes of arrays to have been determined by now
+000083BA: error: Failed to write global variable g_t83BA.
+    Index was outside the bounds of the array.
+       at Reko.Core.MemoryArea.TryReadByte(Byte[] img, Int64 off, Byte& b) in D:\dev\uxmal\reko\master\src\Core\MemoryArea.cs:line 663
+   at Reko.Core.MemoryArea.TryReadLe(Byte[] abImage, Int64 imageOffset, PrimitiveType type, Constant& c) in D:\dev\uxmal\reko\master\src\Core\MemoryArea.cs:line 240
+   at Reko.Core.MemoryArea.ReadLe(Byte[] abImage, Int64 imageOffset, PrimitiveType type) in D:\dev\uxmal\reko\master\src\Core\MemoryArea.cs:line 206
+   at Reko.Core.MemoryArea.TryReadLe(Int64 imageOffset, PrimitiveType type, Constant& c) in D:\dev\uxmal\reko\master\src\Core\MemoryArea.cs:line 174
+   at Reko.Core.ImageReader.TryReadLe(PrimitiveType dataType, Constant& c) in D:\dev\uxmal\reko\master\src\Core\ImageReader.cs:line 184
+   at Reko.Core.LeImageReader.TryRead(PrimitiveType dataType, Constant& c) in D:\dev\uxmal\reko\master\src\Core\EndianImageReader.cs:line 204
+   at Reko.Core.Output.GlobalDataWriter.VisitPrimitive(PrimitiveType pt) in D:\dev\uxmal\reko\master\src\Core\Output\GlobalDataWriter.cs:line 221
+   at Reko.Core.Types.PrimitiveType.Accept[T](IDataTypeVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Types\PrimitiveType.cs:line 99
+   at Reko.Core.Output.GlobalDataWriter.VisitUnion(UnionType ut) in D:\dev\uxmal\reko\master\src\Core\Output\GlobalDataWriter.cs:line 373
+   at Reko.Core.Types.UnionType.Accept[T](IDataTypeVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Types\UnionType.cs:line 81
+   at Reko.Core.Output.GlobalDataWriter.VisitEquivalenceClass(EquivalenceClass eq) in D:\dev\uxmal\reko\master\src\Core\Output\GlobalDataWriter.cs:line 194
+   at Reko.Core.Types.EquivalenceClass.Accept[T](IDataTypeVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Types\EquivalenceClass.cs:line 54
+   at Reko.Core.Output.GlobalDataWriter.VisitStructure(StructureType str) in D:\dev\uxmal\reko\master\src\Core\Output\GlobalDataWriter.cs:line 336
+   at Reko.Core.Types.StructureType.Accept[T](IDataTypeVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Types\StructureType.cs:line 59
+   at Reko.Core.Output.GlobalDataWriter.VisitEquivalenceClass(EquivalenceClass eq) in D:\dev\uxmal\reko\master\src\Core\Output\GlobalDataWriter.cs:line 194
+   at Reko.Core.Types.EquivalenceClass.Accept[T](IDataTypeVisitor`1 v) in D:\dev\uxmal\reko\master\src\Core\Types\EquivalenceClass.cs:line 54
+   at Reko.Core.Output.GlobalDataWriter.WriteGlobalVariable(Address address, DataType dataType, String name) in D:\dev\uxmal\reko\master\src\Core\Output\GlobalDataWriter.cs:line 123
+0800:4F14: warning: Expected sizes of arrays to have been determined by now
+0800:4F1C: warning: Expected sizes of arrays to have been determined by now
+0800:4F24: warning: Expected sizes of arrays to have been determined by now
+0800:6EBC: warning: Expected sizes of arrays to have been determined by now
+0800:6ECA: warning: Expected sizes of arrays to have been determined by now
+0800:6ED8: warning: Expected sizes of arrays to have been determined by now
 === regressions\snowman-51\switch.dcproject
+*** regressions\snowman-51\switch.dcproject
+switch.dll: error: Using SingleFilePolicy switch.dll
+switch.dll: error: Using SingleFilePolicy switch.dll
+switch.dll: error: Using SingleFilePolicy switch.dll
+switch.dll: error: Using SingleFilePolicy switch.dll
 === regressions\snowman-74\int16.dll
 === regressions\snowman-82\flags
 === regressions\snowman-83\flags3
@@ -951,10 +1040,10 @@ error: An error occurred during decompilation. System.NullReferenceException: Ob
    at Reko.Core.Dumper.DumpItem(ImageSegment segment, ImageMapItem i, Formatter formatter) in D:\dev\uxmal\reko\master\src\Core\Dumper.cs:line 119
    at Reko.Core.Dumper.Dump(Dictionary`2 segmentItems, Formatter formatter) in D:\dev\uxmal\reko\master\src\Core\Dumper.cs:line 70
    at Reko.Decompiler.DumpAssembler(Program program, String filename, Dictionary`2 segmentItems, Formatter wr) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 127
-   at Reko.Decompiler.<>c__DisplayClass35_0.<ScanProgram>b__0(String n, Dictionary`2 items, Formatter w) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 572
-   at Reko.DecompiledFileService.WriteDisassembly(Program program, Action`3 writer) in D:\dev\uxmal\reko\master\src\Decompiler\IDecompiledFileService.cs:line 129
-   at Reko.Decompiler.ScanProgram(Program program) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 572
-   at Reko.Decompiler.ScanPrograms() in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 554
+   at Reko.Decompiler.<>c__DisplayClass35_0.<ScanProgram>b__0(String n, Dictionary`2 items, Formatter w) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 587
+   at Reko.DecompiledFileService.WriteDisassembly(Program program, Action`3 writer) in D:\dev\uxmal\reko\master\src\Decompiler\IDecompiledFileService.cs:line 131
+   at Reko.Decompiler.ScanProgram(Program program) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 587
+   at Reko.Decompiler.ScanPrograms() in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 569
    at Reko.CmdLine.CmdLineDriver.Decompile(Dictionary`2 pArgs) in D:\dev\uxmal\reko\master\src\Drivers\CmdLine\CmdLineDriver.cs:line 193
 === wasm\nbody.wasm
 *** wasm\nbody.wasm
@@ -964,10 +1053,10 @@ error: An error occurred during decompilation. System.NullReferenceException: Ob
    at Reko.Core.Dumper.DumpItem(ImageSegment segment, ImageMapItem i, Formatter formatter) in D:\dev\uxmal\reko\master\src\Core\Dumper.cs:line 119
    at Reko.Core.Dumper.Dump(Dictionary`2 segmentItems, Formatter formatter) in D:\dev\uxmal\reko\master\src\Core\Dumper.cs:line 70
    at Reko.Decompiler.DumpAssembler(Program program, String filename, Dictionary`2 segmentItems, Formatter wr) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 127
-   at Reko.Decompiler.<>c__DisplayClass35_0.<ScanProgram>b__0(String n, Dictionary`2 items, Formatter w) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 572
-   at Reko.DecompiledFileService.WriteDisassembly(Program program, Action`3 writer) in D:\dev\uxmal\reko\master\src\Decompiler\IDecompiledFileService.cs:line 129
-   at Reko.Decompiler.ScanProgram(Program program) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 572
-   at Reko.Decompiler.ScanPrograms() in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 554
+   at Reko.Decompiler.<>c__DisplayClass35_0.<ScanProgram>b__0(String n, Dictionary`2 items, Formatter w) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 587
+   at Reko.DecompiledFileService.WriteDisassembly(Program program, Action`3 writer) in D:\dev\uxmal\reko\master\src\Decompiler\IDecompiledFileService.cs:line 131
+   at Reko.Decompiler.ScanProgram(Program program) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 587
+   at Reko.Decompiler.ScanPrograms() in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 569
    at Reko.CmdLine.CmdLineDriver.Decompile(Dictionary`2 pArgs) in D:\dev\uxmal\reko\master\src\Drivers\CmdLine\CmdLineDriver.cs:line 193
 === wasm\sample.wasm
 *** wasm\sample.wasm
@@ -977,10 +1066,10 @@ error: An error occurred during decompilation. System.NullReferenceException: Ob
    at Reko.Core.Dumper.DumpItem(ImageSegment segment, ImageMapItem i, Formatter formatter) in D:\dev\uxmal\reko\master\src\Core\Dumper.cs:line 119
    at Reko.Core.Dumper.Dump(Dictionary`2 segmentItems, Formatter formatter) in D:\dev\uxmal\reko\master\src\Core\Dumper.cs:line 70
    at Reko.Decompiler.DumpAssembler(Program program, String filename, Dictionary`2 segmentItems, Formatter wr) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 127
-   at Reko.Decompiler.<>c__DisplayClass35_0.<ScanProgram>b__0(String n, Dictionary`2 items, Formatter w) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 572
-   at Reko.DecompiledFileService.WriteDisassembly(Program program, Action`3 writer) in D:\dev\uxmal\reko\master\src\Decompiler\IDecompiledFileService.cs:line 129
-   at Reko.Decompiler.ScanProgram(Program program) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 572
-   at Reko.Decompiler.ScanPrograms() in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 554
+   at Reko.Decompiler.<>c__DisplayClass35_0.<ScanProgram>b__0(String n, Dictionary`2 items, Formatter w) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 587
+   at Reko.DecompiledFileService.WriteDisassembly(Program program, Action`3 writer) in D:\dev\uxmal\reko\master\src\Decompiler\IDecompiledFileService.cs:line 131
+   at Reko.Decompiler.ScanProgram(Program program) in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 587
+   at Reko.Decompiler.ScanPrograms() in D:\dev\uxmal\reko\master\src\Decompiler\Decompiler.cs:line 569
    at Reko.CmdLine.CmdLineDriver.Decompile(Dictionary`2 pArgs) in D:\dev\uxmal\reko\master\src\Drivers\CmdLine\CmdLineDriver.cs:line 193
 Stripping SSA identifier numbers
-Decompiled 66 binaries in 65.21 seconds ---
+Decompiled 66 binaries in 63.59 seconds ---

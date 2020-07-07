@@ -8,16 +8,6 @@ struct Eq_n * g_ptr0000;
 struct Eq_n * g_ptr0004;
 word32 g_a0008[];
 ui32 g_a0010[];
-byte g_b13A4 = 116;
-struct Eq_n * g_ptr13C8 = null;
-struct Eq_n * g_ptr13CC = null;
-struct Eq_n * g_ptr13D0 = null;
-struct Eq_n * g_ptr13D4 = null;
-struct Eq_n * g_ptr13D8 = null;
-Eq_n g_t13DC = 
-	{
-		0
-	};
 Eq_n g_t13E0;
 Eq_n g_t13E4;
 word32 g_dw13F0;
@@ -27,4 +17,3 @@ word32 g_dw1400;
 Eq_n g_t1404;
 word32 g_dw1408;
 struct Eq_n * g_ptr140C;
-
