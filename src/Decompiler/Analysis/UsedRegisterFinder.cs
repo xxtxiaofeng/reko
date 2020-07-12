@@ -339,6 +339,14 @@ namespace Reko.Analysis
             return BitRange.Empty;
         }
 
+        public BitRange VisitConversion(Conversion conversion)
+        {
+            throw new NotImplementedException();
+            //var n = cast.Expression.Accept(this);
+            //return new BitRange(n.Lsb, Math.Min(n.Msb, cast.DataType.BitSize));
+        }
+
+
         public BitRange VisitDereference(Dereference deref)
         {
             throw new NotImplementedException();

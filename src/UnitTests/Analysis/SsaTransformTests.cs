@@ -2574,7 +2574,7 @@ proc1_exit:
                 var r3 = m.Register("r3");
 
                 m.Assign(CZ, m.Cond(r3));
-                m.Assign(r3, m.Cast(PrimitiveType.Int32, m.Test(ConditionCode.ULE, CZ)));
+                m.Assign(r3, m.Convert(m.Test(ConditionCode.ULE, CZ), PrimitiveType.Int32, PrimitiveType.Bool));
                 m.Return();
             });
         }

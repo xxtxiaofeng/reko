@@ -163,7 +163,7 @@ namespace Reko.Arch.Mips
             var regPair = GetFpuRegPair(instr.Operands[1]);
             m.Assign(
                 RewriteOperand0(instr.Operands[0]),
-                m.Cast(dt, regPair));
+                m.Convert(regPair, regPair.DataType, dt));
         }
 
         private void RewriteMfc1(MipsInstruction instr)
@@ -183,7 +183,7 @@ namespace Reko.Arch.Mips
             var ppp = host.PseudoProcedure(fn, dtSrc, tmp);
             m.Assign(
                 RewriteOperand(instr.Operands[0]),
-                m.Cast(dtDst, ppp));
+                m.Convert(ppp, ppp.DataType, dtDst));
         }
     }
 }

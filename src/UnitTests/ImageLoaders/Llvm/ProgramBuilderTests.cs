@@ -202,7 +202,7 @@ next_char_entry:
 	// succ:  l0
 l0:
 	loc1 = *curch
-	loc2 = (int32) loc1
+	loc2 = CONVERT(loc1, byte, int32)
 	loc3 = loc2 == 0xA<32>
 	branch loc3 l4
 	goto l7
